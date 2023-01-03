@@ -3,79 +3,74 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.main`
-  display: grid;
-  grid-template-columns: 0.1fr 0.9fr;
-  outline: 1px solid;
+  @font-face {
+    font-family: "notosans";
+    src: url("/assets/fonts/notosans/NotoSansKR-Bold.otf");
+  }
 
+  #tier-container {
+    display: grid;
+    grid-template-columns: 0.1fr 0.9fr;
+    border: 1px solid gray;
+  }
   .item-box {
-    padding: 10px;
-    border-bottom: 1px solid;
+    padding-left: 3vw;
+    padding: 10px 0 10px 2vw;
+    border-bottom: 1px solid gray;
     border-left: 1px solid;
     margin-bottom: -1px;
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 3vw;
   }
   .tier-box {
+    font-family: "notosans";
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid black;
+    margin-bottom: -1px;
+    font-size: 17px;
   }
 `;
-export default function DefaultTemplate() {
-  const rankList = {
-    0: {
-      hermes: {
-        link: "https://www.hermes.com/kr/ko/",
-        name: "에르메스",
-        logo: "/images/bag/hermes.svg",
-      },
-    },
-    1: {
-      chanel: { link: "https://www.chanel.com/kr", name: "샤넬", logo: "/images/bag/chanel.svg" },
-      louis: {
-        link: "https://kr.louisvuitton.com/kor-kr/homepage",
-        name: "루이비통",
-        logo: "/images/bag/louis.svg",
-      },
-      goyard: {
-        link: "https://kr.louisvuitton.com/kor-kr/homepage",
-        name: "고야드",
-        logo: "/images/bag/goyard.svg",
-      },
-    },
-    2: {
-      dior: { link: "https://www.chanel.com/kr", name: "샤넬" },
-      fendi: { link: "https://kr.louisvuitton.com/kor-kr/homepage", name: "루이비통" },
-      bottega: { link: "https://kr.louisvuitton.com/kor-kr/homepage", name: "루이비통" },
-      celine: { link: "https://kr.louisvuitton.com/kor-kr/homepage", name: "루이비통" },
-    },
-    3: {
-      prada: { link: "https://www.chanel.com/kr", name: "샤넬" },
-      gucci: { link: "https://kr.louisvuitton.com/kor-kr/homepage", name: "루이비통" },
-      saint: { link: "https://kr.louisvuitton.com/kor-kr/homepage", name: "루이비통" },
-      burberry: { link: "https://kr.louisvuitton.com/kor-kr/homepage", name: "루이비통" },
-      loewe: { link: "https://kr.louisvuitton.com/kor-kr/homepage", name: "루이비통" },
-    },
+
+const Tier = styled.div`
+  color: ${(props) => props.color};
+  color: ${(props) => props.color};
+  text-shadow: 0 0 7px ${(props) => props.color}, 0 0 10px ${(props) => props.color},
+    0 0 21px ${(props) => props.color}, 0 0 42px black, 0 0 82px black, 0 0 92px black,
+    0 0 102px black, 0 0 151px black;
+  background-color: black;
+`;
+export default function DefaultTemplate({ rankList }: any) {
+  const tierColor: any = {
+    0: "red",
+    1: "orange",
+    2: "yellow",
+    3: "green",
+    4: "blue",
+    5: "indigo",
+    6: "purple",
   };
-  console.log(Object.entries(rankList));
   return (
     <Wrapper>
-      {Object.entries(rankList).map((e, i) => (
-        <>
-          <div className="tier-box">{e[0]}Tier</div>
-          <div className="item-box">
-            {Object.entries(e[1]).map((e: any, i) => (
-              <>
-                <a href={e[1]["link"]}>
-                  {/* <div key={i}>{e[1]["name"]}</div> */}
-                  {/* <img src={e[1]?.["logo"]} alt="" /> */}
-                  {e[1]["logo"] && <Image src={e[1]?.["logo"]} width={130} height={80} alt="as" />}
-                </a>
-              </>
-            ))}
-          </div>
-        </>
-      ))}
+      {/* <div id="title">Bag Rank</div> */}
+      <div id="tier-container">
+        {Object.entries(rankList).map((e: any, i) => (
+          <>
+            <Tier color={tierColor[e[0]]} className="tier-box">{`${e[0]} Tier`}</Tier>
+            <div className="item-box">
+              {Object.entries(e[1]).map((e: any, i) => (
+                <>
+                  <a href={e[1]["link"]}>
+                    {e[1]["logo"] && <Image src={e[1]?.["logo"]} width={180} height={60} alt="" />}
+                  </a>
+                </>
+              ))}
+            </div>
+          </>
+        ))}
+      </div>
     </Wrapper>
   );
 }
