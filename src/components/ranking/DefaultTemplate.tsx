@@ -39,6 +39,11 @@ const Wrapper = styled.main`
     height: "100%";
     position: fixed;
   }
+  .logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Tier = styled.div`
@@ -49,7 +54,7 @@ const Tier = styled.div`
     0 0 102px black, 0 0 151px black;
   background-color: black;
 `;
-export default function DefaultTemplate({ rankList }: any) {
+export default function DefaultTemplate({ rankList, width, height }: any) {
   const router = useRouter();
   const { collapseSidebar } = useProSidebar();
   const tierColor: any = {
@@ -71,11 +76,14 @@ export default function DefaultTemplate({ rankList }: any) {
             <Tier color={tierColor[e[0]]} className="tier-box">{`${e[0]} Tier`}</Tier>
             <div className="item-box">
               {Object.entries(e[1]).map((e: any, i) => (
-                <>
+                <div className="logo-box" key={i}>
                   <a href={e[1]["link"]}>
-                    {e[1]["logo"] && <Image src={e[1]?.["logo"]} width={180} height={60} alt="" />}
+                    {e[1]["logo"] && (
+                      <Image src={e[1]?.["logo"]} width={width} height={height} alt="" />
+                    )}
                   </a>
-                </>
+                  <span>{e[1]["name"]}</span>
+                </div>
               ))}
             </div>
           </>

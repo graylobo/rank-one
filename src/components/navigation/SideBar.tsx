@@ -29,6 +29,13 @@ export default function SideBar() {
               >
                 핸드백
               </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  router.push("/ranking/royal/watch");
+                }}
+              >
+                시계
+              </MenuItem>
             </SubMenu>
             <MenuItem> Calendar</MenuItem>
             <MenuItem> E-commerce</MenuItem>
