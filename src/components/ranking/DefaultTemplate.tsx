@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
+import { Menu, MenuItem, Sidebar, SubMenu, useProSidebar } from "react-pro-sidebar";
+import { useRouter } from "next/router";
 
 const Wrapper = styled.main`
   @font-face {
@@ -32,6 +34,11 @@ const Wrapper = styled.main`
     margin-bottom: -1px;
     font-size: 17px;
   }
+  #navbar {
+    display: "flex";
+    height: "100%";
+    position: fixed;
+  }
 `;
 
 const Tier = styled.div`
@@ -43,6 +50,8 @@ const Tier = styled.div`
   background-color: black;
 `;
 export default function DefaultTemplate({ rankList }: any) {
+  const router = useRouter();
+  const { collapseSidebar } = useProSidebar();
   const tierColor: any = {
     0: "red",
     1: "orange",
@@ -55,6 +64,7 @@ export default function DefaultTemplate({ rankList }: any) {
   return (
     <Wrapper>
       {/* <div id="title">Bag Rank</div> */}
+
       <div id="tier-container">
         {Object.entries(rankList).map((e: any, i) => (
           <>
