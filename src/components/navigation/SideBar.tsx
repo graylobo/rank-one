@@ -7,8 +7,8 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   position: relative;
   #more {
-    width: 1vw;
-    height: 1vw;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
   }
 `;
