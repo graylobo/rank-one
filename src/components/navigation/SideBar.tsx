@@ -37,8 +37,8 @@ export default function SideBar() {
                 시계
               </MenuItem>
             </SubMenu>
-            <MenuItem> Calendar</MenuItem>
-            <MenuItem> E-commerce</MenuItem>
+            {/* <MenuItem> Calendar</MenuItem>
+            <MenuItem> E-commerce</MenuItem> */}
           </Menu>
         </Sidebar>
       )}

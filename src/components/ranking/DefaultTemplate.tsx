@@ -44,6 +44,16 @@ const Wrapper = styled.main`
     flex-direction: column;
     align-items: center;
   }
+  .brand-name {
+    font-weight: bold;
+    color: #696565;
+  }
+`;
+
+const LogoImageWrapper = styled.div<any>`
+  .logo-image {
+    transform: ${(props) => `scale(${props.x},${props.y})`};
+  }
 `;
 
 const Tier = styled.div`
@@ -77,12 +87,23 @@ export default function DefaultTemplate({ rankList, width, height }: any) {
             <div className="item-box">
               {Object.entries(e[1]).map((e: any, i) => (
                 <div className="logo-box" key={i}>
-                  <a href={e[1]["link"]}>
+                  <a href={e[1]["link"]} target="_blank" rel="noopener noreferrer">
                     {e[1]["logo"] && (
-                      <Image src={e[1]?.["logo"]} width={width} height={height} alt="" />
+                      <LogoImageWrapper
+                        x={e[1]["scaleX"] ? e[1]["scaleX"] : 1}
+                        y={e[1]["scaleY"] ? e[1]["scaleY"] : 1}
+                      >
+                        <Image
+                          className="logo-image"
+                          src={e[1]?.["logo"]}
+                          width={width}
+                          height={height}
+                          alt=""
+                        />
+                      </LogoImageWrapper>
                     )}
                   </a>
-                  <span>{e[1]["name"]}</span>
+                  <span className="brand-name">{e[1]["name"]}</span>
                 </div>
               ))}
             </div>
