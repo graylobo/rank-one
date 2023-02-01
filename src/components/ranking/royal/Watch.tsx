@@ -98,8 +98,80 @@ export default function Bag() {
         logo: "/images/royal/watch/hublot.svg",
       },
     },
-    4: {},
-    5: {},
+    4: {
+      rado: {
+        link: "https://www.rado.com/ko_kr/art-of-ceramic.html",
+        name: "Rado(라도)",
+        logo: "/images/royal/watch/rado.svg",
+      },
+      tagheuer: {
+        link: "https://www.tagheuer.com/kr/ko",
+        name: "Tagheuer(태그 호이어)",
+        logo: "/images/royal/watch/tagheuer.svg",
+      },
+      longines: {
+        link: "https://www.longines.com/kr",
+        name: "Longines(론진)",
+        logo: "/images/royal/watch/longines.svg",
+      },
+      tudor: {
+        link: "https://www.tudorwatch.com/ko",
+        name: "Tudor(튜더)",
+        logo: "/images/royal/watch/tudor.svg",
+      },
+      grandseiko: {
+        link: "https://www.grand-seiko.com/kr-ko",
+        name: "Grand Seiko(그랜드 세이코)",
+        logo: "/images/royal/watch/grandseiko.svg",
+      },
+      cartier: {
+        link: "https://www.cartier.com/ko-kr/%EC%8B%9C%EA%B3%84",
+        name: "Cartier(까르띠에)",
+        logo: "/images/royal/watch/cartier.svg",
+      },
+    },
+    5: {
+      frederiqueconstant: {
+        link: "https://frederiqueconstant.com/",
+        name: "Frederique Constant(프레드릭 콘스탄트)",
+        logo: "/images/royal/watch/frederiqueconstant.svg",
+      },
+      mido: {
+        link: "https://www.midowatches.com/kr/",
+        name: "Mido(미도)",
+        logo: "/images/royal/watch/mido.svg",
+      },
+      oris: {
+        link: "https://oris.ch/ko",
+        name: "Oris(오리스)",
+        logo: "/images/royal/watch/oris.svg",
+      },
+      casio: {
+        link: "https://www.casio.com/kr/watches/gshock/",
+        name: "Casio(카시오)",
+        logo: "/images/royal/watch/casio.svg",
+      },
+      citizen: {
+        link: "https://www.citizenwatch.com/",
+        name: "Citizen(시티즌)",
+        logo: "/images/royal/watch/citizen.svg",
+      },
+      tissot: {
+        link: "https://www.tissotwatches.com/ko-kr",
+        name: "Tissot(티소)",
+        logo: "/images/royal/watch/tissot.svg",
+      },
+      seiko: {
+        link: "https://www.seikowatches.com/kr-ko",
+        name: "Seiko(세이코)",
+        logo: "/images/royal/watch/seiko.svg",
+      },
+      hamilton: {
+        link: "https://www.hamiltonwatch.com/ko-kr/",
+        name: "Hamilton(해밀턴)",
+        logo: "/images/royal/watch/hamilton.svg",
+      },
+    },
     6: {},
   };
   return <DefaultTemplate rankList={rankList} width={220} height={100} />;
