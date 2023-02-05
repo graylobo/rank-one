@@ -3,10 +3,15 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Menu, MenuItem, Sidebar, SubMenu, useProSidebar } from "react-pro-sidebar";
 import styled from "styled-components";
-
+import { useQuery } from "react-query";
+import { getMenus } from "../../api/menu";
 export default function SideBar() {
   const router = useRouter();
   const [sideBar, setSideBar] = useState(false);
+  const { data, isLoading, error } = useQuery("getMenu", getMenus, {
+    select: (data) => Object.entries(data.data.data),
+  });
+  console.log("zz", data);
   return (
     <Wrapper id={`navbar ${sideBar ? "active" : ""}`}>
       <div id="nav-container">
@@ -15,24 +20,23 @@ export default function SideBar() {
             <Modal />
             <Sidebar collapsedWidth="0" id="sidebar">
               <Menu className="menu-container">
-                <SubMenu label="명품">
-                  <MenuItem
-                    onClick={() => {
-                      router.push("/ranking/royal/bag");
-                    }}
-                  >
-                    핸드백
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => {
-                      router.push("/ranking/royal/watch");
-                    }}
-                  >
-                    시계
-                  </MenuItem>
-                </SubMenu>
-                {/* <MenuItem> Calendar</MenuItem>
-            <MenuItem> E-commerce</MenuItem> */}
+                {data?.map(
+                  (menu: any) =>
+                    menu[1]["visible"] && (
+                      <SubMenu key={menu[0]} label={menu[0]}>
+                        {Object.entries(menu[1]["menuItems"]).map((menuItem: any) => (
+                          <MenuItem
+                            onClick={() => {
+                              router.push(menuItem[1]["route"]);
+                            }}
+                            key={menuItem[0]}
+                          >
+                            {menuItem[0]}
+                          </MenuItem>
+                        ))}
+                      </SubMenu>
+                    )
+                )}
               </Menu>
             </Sidebar>
           </>
@@ -70,6 +74,7 @@ const Wrapper = styled.div`
     z-index: 99;
     position: absolute;
     left: 40px;
+    border-right: 0;
     .ps-sidebar-container {
       border-radius: 10px;
     }
