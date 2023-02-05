@@ -5,23 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      .b {
-        margin-top: 250px;
-        margin-left: 250px;
-        background-color: yellow;
-        width: 300px;
-        height: 300px;
-      }
-      svg {
-        margin-left: 10%;
-        margin-top: 10%;
-      }
-    </style>
   </head>
+  <style>
+    .par {
+      width: 1000px;
+      height: 1000px;
+      background-color: gray;
+    }
+    .cha1 {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+    .cha2 {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.5;
+      background-color: black;
+    }
+  </style>
   <body>
-    <svg width="100" height="100" viewBox="0 0 1 1">
-      <rect width="50" height="50" fill="blue" />
-    </svg>
+    <button>클릭</button>
+    <div class="par">
+      <div class="cha1"></div>
+      <div class="cha2">
+        <div class="modal"></div>
+      </div>
+      <div class="cha3"></div>
+    </div>
   </body>
 </html>

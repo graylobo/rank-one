@@ -58,11 +58,11 @@ const LogoImageWrapper = styled.div<any>`
 
 const Tier = styled.div`
   color: ${(props) => props.color};
-  color: ${(props) => props.color};
   text-shadow: 0 0 7px ${(props) => props.color}, 0 0 10px ${(props) => props.color},
     0 0 21px ${(props) => props.color}, 0 0 42px black, 0 0 82px black, 0 0 92px black,
     0 0 102px black, 0 0 151px black;
-  background-color: black;
+  background-color: #171717;
+  margin-bottom: 1px !important;
 `;
 export default function DefaultTemplate({ rankList, width, height }: any) {
   const router = useRouter();
