@@ -10,9 +10,11 @@ function DefaultLayout({ children }: any) {
   }, []);
   return (
     <Wrapper width={fullWidth} className="tests">
-      <SideBar />
       <h1 id="title-name">RANK ONE</h1>
-      <ContentSection width={fullWidth}>{children}</ContentSection>
+      <ContentSection width={fullWidth}>
+        <SideBar />
+        {children}
+      </ContentSection>
       <Kakao
         className={"kakao-ad-1 kakao-ad-pc"}
         code={"DAN-F3a42R4onMLWbFYg"}
