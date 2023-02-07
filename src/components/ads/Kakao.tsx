@@ -1,14 +1,21 @@
 import React from "react";
 
-function Kakao({ className }: any) {
+interface IPros {
+  className: string;
+  code: string;
+  width: number;
+  height: number;
+}
+
+function Kakao({ className, width, height, code }: IPros) {
   return (
     <aside className={className}>
       <ins
         className="kakao_ad_area"
         style={{ display: "none" }}
-        data-ad-unit="DAN-F3a42R4onMLWbFYg"
-        data-ad-width="160"
-        data-ad-height="600"
+        data-ad-unit={code}
+        data-ad-width={width}
+        data-ad-height={height}
       ></ins>
     </aside>
   );

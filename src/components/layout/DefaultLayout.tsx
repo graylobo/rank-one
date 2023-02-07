@@ -13,8 +13,18 @@ function DefaultLayout({ children }: any) {
       <SideBar />
       <h1 id="title-name">RANK ONE</h1>
       <ContentSection width={fullWidth}>{children}</ContentSection>
-      <Kakao className={"kakao-ad-1 kakao-ad-pc"} />
-      <Kakao className={"kakao-ad-2 kakao-ad-pc"} />
+      <Kakao
+        className={"kakao-ad-1 kakao-ad-pc"}
+        code={"DAN-F3a42R4onMLWbFYg"}
+        width={160}
+        height={600}
+      />
+      <Kakao
+        className={"kakao-ad-2 kakao-ad-pc"}
+        code={"DAN-nkZj3D2R4yvjPIDl"}
+        width={160}
+        height={600}
+      />
     </Wrapper>
   );
 }

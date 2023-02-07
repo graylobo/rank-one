@@ -11,13 +11,16 @@ export default function SideBar() {
   const { data, isLoading, error } = useQuery("getMenu", getMenus, {
     select: (data) => Object.entries(data.data.data),
   });
-  console.log("zz", data);
+
+  function handleModalBackgroundClick(e: React.MouseEvent) {
+    setSideBar(false);
+  }
   return (
     <Wrapper id={`navbar ${sideBar ? "active" : ""}`}>
       <div id="nav-container">
         {sideBar && (
           <>
-            <Modal />
+            <Modal onClick={handleModalBackgroundClick} />
             <Sidebar collapsedWidth="0" id="sidebar">
               <Menu className="menu-container">
                 {data?.map(
