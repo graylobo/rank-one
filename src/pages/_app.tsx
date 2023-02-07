@@ -12,11 +12,25 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>세상의 모든 계급표</title>
       </Head>
-
+      <Script
+        type="text/javascript"
+        onError={(e) => {
+          console.error("Daum Script failed to load", e);
+        }}
+        src="//t1.daumcdn.net/kas/static/ba.min.js"
+        async
+      ></Script>
+      <Script
+        id="Adsense-id"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1544015487048934"
+        crossOrigin="anonymous"
+        onError={(e) => {
+          console.error("AdSence Script failed to load!", e);
+        }}
+      ></Script>
       <QueryClientProvider client={queryClient}>
         <ProSidebarProvider>
           <DefaultLayout>
-            <SideBar />
             <Component {...pageProps} />
           </DefaultLayout>
         </ProSidebarProvider>

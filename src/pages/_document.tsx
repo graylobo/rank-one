@@ -20,15 +20,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <Script
-        id="Adsense-id"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1544015487048934"
-        crossOrigin="anonymous"
-        strategy="beforeInteractive"
-        onError={(e) => {
-          console.error("AdSence Script failed to load!", e);
-        }}
-      ></Script>
+
       <body>
         <Main />
         <NextScript />
