@@ -60,6 +60,8 @@ const Wrapper = styled.main<{ width: number }>`
 `;
 
 const ContentSection = styled.section<{ width: number }>`
-  width: ${(props) => `${props.width * 0.66}px`};
-  margin: 0 auto;
+  @media (min-width: 1024px) {
+    width: ${(props) => `${props.width * 0.66}px`};
+    margin: 0 auto;
+  }
 `;
