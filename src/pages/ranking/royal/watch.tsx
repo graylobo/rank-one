@@ -6,7 +6,7 @@ import Watch from "../../../components/ranking/royal/Watch";
 export default function watch() {
   return (
     <>
-      <NextSeo title="" />
+      <NextSeo title="시계 계급도" description="시계 계급표" />
       <Watch />
     </>
   );
