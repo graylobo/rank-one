@@ -30,4 +30,4 @@ function createObject(data) {
   }, {});
 }
 
-export { createObject, ITemplateProps };
+export { createObject, ITemplateProps,ITemplateItemProps };

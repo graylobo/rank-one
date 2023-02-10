@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useProSidebar } from "react-pro-sidebar";
 import styled from "styled-components";
+import { ITemplateItemProps } from "../lib/createObject";
 
 const Wrapper = styled.main`
   @font-face {
@@ -78,20 +79,20 @@ export default function DefaultTemplate({ rankList, width, height, switchTier }:
   };
   return (
     <Wrapper>
-      {/* <div id="title">Bag Rank</div> */}
-
       <div id="tier-container">
         {Object.entries(rankList).map((e: any, i) => {
-          const tier = e[1];
+          const tier = e[0];
           return (
             <>
-              <Tier color={tierColor[e[0]]} className="tier-box">{`${
-                switchTier?.[e[0]] || `${e[0]} tier`
+              <Tier color={tierColor[tier]} className="tier-box">{`${
+                switchTier?.[tier] || `${tier} tier`
               } `}</Tier>
               <div className="item-box">
-                {Object.entries(e[1]).map((e: any, i) => (
-                  <div className="logo-box" key={i}>
-                    {/* <a href={e[1]["link"]} target="_blank" rel="noopener noreferrer">
+                {Object.entries(e[1]).map((e: any, i) => {
+                  const items: ITemplateItemProps = e[1];
+                  return (
+                    <div className="logo-box" key={i}>
+                      {/* <a href={e[1]["link"]} target="_blank" rel="noopener noreferrer">
             {e[1]["logo"] && (
               <LogoImageWrapper
                 x={e[1]["scaleX"] ? e[1]["scaleX"] : 1}
@@ -107,23 +108,24 @@ export default function DefaultTemplate({ rankList, width, height, switchTier }:
               </LogoImageWrapper>
             )}
           </a> */}
-                    {e[1]["logo"] && (
-                      <LogoImageWrapper
-                        x={e[1]["scaleX"] ? e[1]["scaleX"] : 1}
-                        y={e[1]["scaleY"] ? e[1]["scaleY"] : 1}
-                      >
-                        <Image
-                          className="logo-image"
-                          src={e[1]?.["logo"]}
-                          width={width}
-                          height={height}
-                          alt=""
-                        />
-                      </LogoImageWrapper>
-                    )}
-                    <span className="brand-name">{e[1]["name"]}</span>
-                  </div>
-                ))}
+                      {items.logo && (
+                        <LogoImageWrapper
+                          x={items.scaleX ? items.scaleX : 1}
+                          y={items.scaleY ? items.scaleY : 1}
+                        >
+                          <Image
+                            className="logo-image"
+                            src={items?.logo}
+                            width={width}
+                            height={height}
+                            alt=""
+                          />
+                        </LogoImageWrapper>
+                      )}
+                      <span className="brand-name">{items.brandName}</span>
+                    </div>
+                  );
+                })}
               </div>
             </>
           );
